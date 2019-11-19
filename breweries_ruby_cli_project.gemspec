@@ -1,9 +1,9 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "brewries_ruby_cli_project/version"
+require "breweries_ruby_cli_project/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "brewries_ruby_cli_project"
+  spec.name          = "breweries_ruby_cli_project"
   spec.version       = BrewriesRubyCliProject::VERSION
   spec.authors       = ["Jeff Eckert"]
   spec.email         = ["bromodo@gmail.com"]

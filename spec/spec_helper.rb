@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "brewries_ruby_cli_project"
+require "breweries_ruby_cli_project"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

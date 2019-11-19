@@ -1,6 +1,6 @@
-RSpec.describe BrewriesRubyCliProject do
+RSpec.describe BreweriesRubyCliProject do
   it "has a version number" do
-    expect(BrewriesRubyCliProject::VERSION).not_to be nil
+    expect(BreweriesRubyCliProject::VERSION).not_to be nil
   end
 
   it "does something useful" do
