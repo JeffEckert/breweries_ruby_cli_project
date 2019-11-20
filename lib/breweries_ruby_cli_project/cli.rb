@@ -12,6 +12,14 @@ class BreweriesRubyCliProject::CLI
     def initial_query
         puts "Enter the state you would like to find a Brewery in"
         # User will enter state
+
+        input = gets.strip
+
+        BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
+
+
+
+
     end
 
 
