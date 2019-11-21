@@ -9,6 +9,6 @@ class BreweriesRubyCliProject::APIService
         json.each do |brewery_hash|
             BreweriesRubyCliProject::Brewery.new(brewery_hash)
         end
-        binding.pry
+        
     end
 end

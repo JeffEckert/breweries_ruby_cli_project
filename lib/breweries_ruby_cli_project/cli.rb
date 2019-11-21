@@ -4,7 +4,6 @@ class BreweriesRubyCliProject::CLI
     def call
        puts "Welcome! Let's get you a beer."
        initial_query
-       list_breweries
        menu
        brewery_details
     end
@@ -17,19 +16,17 @@ class BreweriesRubyCliProject::CLI
 
         BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
 
+        BreweriesRubyCliProject::Brewery.all.each.with_index(1) do |b, i|
+            puts "#{i}. #{b.name}"
+        end
 
+        puts "What Brewery would you like to know more about?"
 
+        # input = gets.strip
 
-    end
+        # brewery = Brewery.all[input.to_i - 1]
 
-
-    def list_breweries
-        #get local breweries based on state
-        puts <<-DOC
-        1.Local Brew
-        2.Stateline Brew
-        3.Narragansett 
-        DOC
+        # BreweriesRubyCliProject::Brewery.query_single_brewery(brewery)
     end
 
     def menu 
