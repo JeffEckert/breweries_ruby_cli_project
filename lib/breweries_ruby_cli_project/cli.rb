@@ -22,25 +22,17 @@ class BreweriesRubyCliProject::CLI
 
         puts "What Brewery would you like to know more about?"
 
-        # input = gets.strip
+        input = gets.strip
 
-        # brewery = Brewery.all[input.to_i - 1]
+        brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
 
-        # BreweriesRubyCliProject::Brewery.query_single_brewery(brewery)
+        BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
+
     end
 
-    def menu 
-        puts "Enter the number of the Brewery you would like to learn more about"
-    end
+    
 
-    def brewery_details
-        puts <<-DOC
-        Local Brew
-        Address
-        Phone Number
-        website
-        DOC
-    end
+    
     
 
     
