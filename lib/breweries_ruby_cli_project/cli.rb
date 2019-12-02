@@ -3,11 +3,11 @@ class BreweriesRubyCliProject::CLI
 
     def call
        puts "Welcome! Let's get you a beer."
-       initial_query
+       main_action
        return_to_start
     end
 
-    def initial_query
+    def main_action
         all = []
         puts "Enter the state you would like to find a Brewery in"
        
@@ -19,17 +19,19 @@ class BreweriesRubyCliProject::CLI
         all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.name}"
         end
-   
-
+    
+       
         puts "What Brewery would you like to know more about?"
 
         input = gets.strip
 
-        brewery =  all[input.to_i - 1]
+        brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
 
         # binding.pry
 
         pp BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
+
+    
         
     end
 
@@ -43,8 +45,6 @@ class BreweriesRubyCliProject::CLI
 
          else
             call
-
-        
          end
     end
 
