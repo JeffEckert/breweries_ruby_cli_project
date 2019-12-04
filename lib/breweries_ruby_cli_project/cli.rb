@@ -14,13 +14,16 @@ class BreweriesRubyCliProject::CLI
        
 
         input = gets.strip
+        
 
         all = BreweriesRubyCliProject::APIService.query_openbrewerydb(input, all)
-
+        
 
         all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.name}"
         end
+
+
     end
 
     def second_question
@@ -40,7 +43,7 @@ class BreweriesRubyCliProject::CLI
         all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
 
         all.each.with_index(1) do |b, i|
-            puts "#{i}. #{b}"
+            puts "#{i}. #{b.join(" - ")}"
         end
     
     end
