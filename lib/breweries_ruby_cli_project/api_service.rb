@@ -16,8 +16,6 @@ class BreweriesRubyCliProject::APIService
         results = RestClient.get("#{BASE_URL}/#{brewery.id}")
 
     #    binding.pry
-        # json = JSON.parse(results)
-        # BreweriesRubyCliProject::Brewery.new(json)
         json = JSON.parse(results)
         brewery.update(json)
 

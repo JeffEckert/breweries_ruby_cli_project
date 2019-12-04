@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/breweries_ruby_cli_project'
+require './lib/environment'
 
 BreweriesRubyCliProject::CLI.new.call
