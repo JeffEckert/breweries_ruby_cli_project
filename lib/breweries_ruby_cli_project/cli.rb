@@ -2,7 +2,7 @@
 class BreweriesRubyCliProject::CLI
 
     def call
-       puts "Welcome! Let's get you a beer."
+       puts "Welcome! Let's get you a beer.".blue
        main_action
        second_question
        return_to_start
@@ -10,7 +10,7 @@ class BreweriesRubyCliProject::CLI
 
     def main_action
         all = []
-        puts "Enter the state you would like to find a Brewery in. (enter the full state name)"
+        puts "Enter the state you would like to find a Brewery in. (enter the full state name)".blue
        
 
         input = gets.strip
@@ -20,7 +20,7 @@ class BreweriesRubyCliProject::CLI
         
 
         all.each.with_index(1) do |b, i|
-            puts "#{i}. #{b.name}"
+            puts "#{i}. #{b.name}".red
         end
 
 
@@ -30,7 +30,7 @@ class BreweriesRubyCliProject::CLI
         all = []
     
        
-        puts "Enter the number of the Brewery you would like to learn more about."
+        puts "Enter the number of the Brewery you would like to learn more about.".blue
 
         input = gets.strip
 
@@ -43,19 +43,19 @@ class BreweriesRubyCliProject::CLI
         all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
 
         all.each.with_index(1) do |b, i|
-            puts "#{i}. #{b.join(" - ")}"
+            puts "#{i}. #{b.join(" - ")}".red
         end
     
     end
     
 
     def return_to_start
-         puts "would you like to search again? enter yes or no"
+         puts "would you like to search again? enter yes or no".green
          input = gets.strip
 
          if input == "no"
 
-            puts "Thanks for stoping by!"
+            puts "Thanks for stoping by!".green
 
          else
             call
