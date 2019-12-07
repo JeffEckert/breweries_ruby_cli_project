@@ -1,8 +1,6 @@
 # BreweriesRubyCliProject
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/breweries_ruby_cli_project`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to my Brewery finder Gem.  This is a project I created for my Flatiron Bootcamp.  In this app I will ask you to choose a state and I will show you a list of breweries in that state. Choose the brewery you would like to learn more about.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+When prompted type in the FULL STATE NAME you are looking to search in.  Then select the number of the brewery you wish to learn more about.  If you want to search again when prompted type yes if not type no.
 
 ## Development
 
