@@ -50,7 +50,7 @@ class BreweriesRubyCliProject::CLI
             puts "#{i}. #{b.join(" - ")}".red
         end
     rescue
-            puts "Check your entry and confirm you are putting a full state, spelled correctly!".orange
+            puts "Check your entry and confirm you are putting a full state, spelled correctly!"
         
     end
     
