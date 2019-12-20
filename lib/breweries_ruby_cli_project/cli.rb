@@ -7,6 +7,7 @@ class BreweriesRubyCliProject::CLI
        second_question
        return_to_start
     end
+
    
 
     def main_action
@@ -16,6 +17,10 @@ class BreweriesRubyCliProject::CLI
 
         input = gets.strip
         
+        if input == "exit"
+            puts "Thanks for stoping by!".light_green
+            exit
+        end
 
          BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
        
@@ -34,7 +39,10 @@ class BreweriesRubyCliProject::CLI
 
         input = gets.strip
 
-        
+        if input == "exit"
+            puts "Thanks for stoping by!".light_green
+            exit
+        end
         
         
 
