@@ -33,7 +33,7 @@ class BreweriesRubyCliProject::CLI
         all = []
     
        
-        puts "Enter the number of the Brewery you would like to learn more about.(If no list appears enter number 0)".blue
+        puts "Enter the number of the Brewery you would like to learn more about.".blue
 
         input = gets.strip
 
@@ -46,8 +46,8 @@ class BreweriesRubyCliProject::CLI
         
 
         all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
-       # binding.pry
-        all.each.with_index(1) do |b, i|
+    #    binding.pry
+       all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.join(" - ")}".red
         end
         rescue
