@@ -9,20 +9,21 @@ class BreweriesRubyCliProject::CLI
     end
 
     def main_action
-        all = []
+        # all = []
         puts "Enter the state you would like to find a Brewery in. (enter the full state name)".blue
        
 
         input = gets.strip
         
 
-        all = BreweriesRubyCliProject::APIService.query_openbrewerydb(input, all)
+         BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
        
-        all.each.with_index(1) do |b, i|
+        BreweriesRubyCliProject::Brewery.all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.name}".red
         end
 
-    
+    rescue
+        puts "please check the spelling of the state you entered"
     
 
 
@@ -37,20 +38,20 @@ class BreweriesRubyCliProject::CLI
         input = gets.strip
 
         
-
+        
         
 
         brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
 
-        # binding.pry
+        
 
         all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
-
+       # binding.pry
         all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.join(" - ")}".red
         end
-    rescue
-            puts "Check your entry and confirm you are putting a full state, spelled correctly!"
+        rescue
+            puts "Check the number and confirm it matches a brewery"
         
     end
     
