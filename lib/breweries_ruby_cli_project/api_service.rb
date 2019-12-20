@@ -7,7 +7,8 @@ class BreweriesRubyCliProject::APIService
     #    binding.pry
         json = JSON.parse(results)
         if json == []
-            puts "please check the spelling of your full State name."
+            puts "You have entered the state name incorrectly Please try again.".red
+            exit
         end
         json.each do |brewery_hash|
              BreweriesRubyCliProject::Brewery.new(brewery_hash)
@@ -19,7 +20,7 @@ class BreweriesRubyCliProject::APIService
 
     #    binding.pry
         json = JSON.parse(results)
-        brewery.update(json)
+         brewery.update(json)
 
 
     end
