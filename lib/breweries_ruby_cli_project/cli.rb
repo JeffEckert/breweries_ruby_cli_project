@@ -23,7 +23,16 @@ class BreweriesRubyCliProject::CLI
         end
 
          BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
-       
+
+         # Write code to check if the Brewery class is empty.
+         # If it is, display an error message that no breweries were found.
+         # Then, rerun your main program loop.
+
+        #  if BreweriesRubyCliProject::Brewery.all.empty?
+        #     puts 'No breweries found here. Please make sure you have entered the full state name correctly.'.red
+        #     main_action
+        #  end
+
         BreweriesRubyCliProject::Brewery.all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.name}".blue
         end
@@ -44,20 +53,27 @@ class BreweriesRubyCliProject::CLI
             exit
         end
         
-        
+        # Validate user input. If they enter an invalid number, ask them to re-enter it.
+        # Rerun the secondary loop.
+
+        # if !input.to_i.between?(1,BreweriesRubyCliProject::Brewery.all.length)
+        #     puts "Check the number and confirm it matches a brewery".red
+        #     second_question
+        # end
 
         brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
 
         
-
         all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
-    #    binding.pry
+
        all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.join(" - ")}".blue
         end
-        rescue
-            puts "Check the number and confirm it matches a brewery".red
-            exit
+
+        # After the user enters the brewery and is returned info, let them search again if they'd like
+     
+        # return_to_start
+
         
         
     end
@@ -70,7 +86,10 @@ class BreweriesRubyCliProject::CLI
          if input == "no"
 
             puts "Thanks for stoping by!".light_green
+            
+            # How will you break out of the program after saying goodbye?
 
+            # exit
          else
             call
          end
