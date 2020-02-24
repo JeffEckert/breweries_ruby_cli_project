@@ -39,7 +39,7 @@ class BreweriesRubyCliProject::CLI
         end
 
         if all == []
-            puts "No Breweries were found.".red
+            puts "No Breweries were found. Check to ensure you have the correct state spelling".red
             call
         end
 
@@ -64,10 +64,10 @@ class BreweriesRubyCliProject::CLI
         # Validate user input. If they enter an invalid number, ask them to re-enter it.
         # Rerun the secondary loop.
 
-        # if !input.to_i.between?(1,BreweriesRubyCliProject::Brewery.all.length)
-        #     puts "Check the number and confirm it matches a brewery".red
-        #     second_question
-        # end
+        if !input.to_i.between?(1,BreweriesRubyCliProject::Brewery.all.length)
+            puts "Check the number and confirm it matches a brewery".red
+            second_question
+        end
 
         brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
 
