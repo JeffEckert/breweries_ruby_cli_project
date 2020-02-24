@@ -11,7 +11,7 @@ class BreweriesRubyCliProject::CLI
    
 
     def main_action
-        # all = []
+        all = []
         puts "Enter the state you would like to find a Brewery in. (enter the full state name)".green
        
 
@@ -22,11 +22,12 @@ class BreweriesRubyCliProject::CLI
             exit
         end
 
-         BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
+         all = BreweriesRubyCliProject::APIService.query_openbrewerydb(input)
+        
 
          # Write code to check if the Brewery class is empty.
          # If it is, display an error message that no breweries were found.
-         # Then, rerun your main program loop.
+         # Then, rerun your main program loop. done, jre
 
         #  if BreweriesRubyCliProject::Brewery.all.empty?
         #     puts 'No breweries found here. Please make sure you have entered the full state name correctly.'.red
@@ -36,6 +37,13 @@ class BreweriesRubyCliProject::CLI
         BreweriesRubyCliProject::Brewery.all.each.with_index(1) do |b, i|
             puts "#{i}. #{b.name}".blue
         end
+
+        if all == []
+            puts "No Breweries were found.".red
+            call
+        end
+
+
 
 
     end
