@@ -91,16 +91,17 @@ class BreweriesRubyCliProject::CLI
          puts "would you like to search again? enter yes or no".light_green
          input = gets.strip
 
-         if input == "no"
+        if input == "no"
 
             puts "Thanks for stoping by!".light_green
             
             # How will you break out of the program after saying goodbye?
 
-            # exit
+            exit
          else
             call
-         end
+         
+        end
     end
 
 
