@@ -67,16 +67,15 @@ class BreweriesRubyCliProject::CLI
         if !input.to_i.between?(1,BreweriesRubyCliProject::Brewery.all.length)
             puts "Check the number and confirm it matches a brewery".red
             second_question
+        else 
+            brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
+            all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
+    
+           all.each.with_index(1) do |b, i|
+                puts "#{i}. #{b.join(" - ")}".blue
+            end
         end
-
-        brewery =  BreweriesRubyCliProject::Brewery.all[input.to_i - 1]
-
         
-        all = BreweriesRubyCliProject::APIService.query_single_brewery(brewery)
-
-       all.each.with_index(1) do |b, i|
-            puts "#{i}. #{b.join(" - ")}".blue
-        end
 
         # After the user enters the brewery and is returned info, let them search again if they'd like
      
@@ -99,6 +98,7 @@ class BreweriesRubyCliProject::CLI
 
             exit
          else
+            BreweriesRubyCliProject::Brewery.all.clear
             call
          
         end
